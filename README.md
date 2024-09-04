@@ -14,11 +14,12 @@ Enquanto K < INDICE faça {
 }
 Imprimir(SOMA);
 ```
-
+<hr>
 Pergunta: Ao final do processamento, qual será o valor da variável SOMA?
 
 **Resposta**: A variável SOMA terá o valor 78.
 
+<br>
 Código em C:
 
 ```c
@@ -47,16 +48,35 @@ Código em C:
 ```c
 #include <stdio.h>
 
+void gerarSequencia(int sequenciaFibonacci[], int tamanhoArray);
+void imprimirSequencia(int sequenciaFibonacci[], int tamanhoArray);
+void encontrarNumero(int sequenciaFibonacci[], int escolha, int tamanhoArray);
+
+
 int main() {
+    int sequenciaFibonacci[40];
+    int escolha;
+    
+    int tamanhoArray = sizeof(sequenciaFibonacci) / sizeof(sequenciaFibonacci[0]);
+    gerarSequencia(sequenciaFibonacci, tamanhoArray);
+    imprimirSequencia(sequenciaFibonacci, tamanhoArray);
+    
+    printf("Digite um numero para verificar se faz parte da Sequencia de Fibonacci: ");
+    if (scanf("%d", &escolha) != 1) {
+        printf("Entrada invalida.\n");
+        return 1;
+    }
+
+    encontrarNumero(sequenciaFibonacci, escolha, tamanhoArray);
+
+    return 0;
+}
+
+void gerarSequencia(int sequenciaFibonacci[], int tamanhoArray){
     int numAnterior = 0;
     int numAtual = 1;
     int numInserir = 0;
-    int sequenciaFibonacci[40];
-    int escolha;
-    int encontro = 0;
     
-    int tamanhoArray = sizeof(sequenciaFibonacci) / sizeof(sequenciaFibonacci[0]);
-
     for (int i = 0; i < tamanhoArray; i++) {
         if (i == 0) {
             sequenciaFibonacci[i] = numAnterior;
@@ -69,19 +89,19 @@ int main() {
             numAtual = numInserir;
         }
     }
+}
 
-    printf("Sequência de Fibonacci gerada:\n");
+void imprimirSequencia(int sequenciaFibonacci[], int tamanhoArray){
+    printf("Sequencia de Fibonacci gerada:\n");
     for (int i = 0; i < tamanhoArray; i++) {
         printf("%d ", sequenciaFibonacci[i]);
     }
-    printf("\n");
+    printf("\n\n");
+}
 
-    printf("Digite um número para verificar se faz parte da Sequência de Fibonacci: ");
-    if (scanf("%d", &escolha) != 1) {
-        printf("Entrada inválida.\n");
-        return 1;
-    }
-
+void encontrarNumero(int sequenciaFibonacci[], int escolha, int tamanhoArray){
+    int encontro = 0;
+    
     for (int i = 0; i < tamanhoArray; i++) {
         if (escolha == sequenciaFibonacci[i]) {
             encontro = 1;
@@ -90,20 +110,41 @@ int main() {
     }
     
     if (encontro) {
-        printf("O número %d faz parte da Sequência de Fibonacci!\n", escolha);
+        printf("\nO número %d faz parte da Sequencia de Fibonacci!\n", escolha);
     } else {
-        printf("O número %d não faz parte da Sequência de Fibonacci.\n", escolha);
+        printf("\nO número %d não faz parte da Sequencia de Fibonacci.\n", escolha);
     }
-
-    return 0;
 }
 ```
+
+## 3ª Pergunta
+Dado um vetor que guarda o valor de faturamento diário de uma distribuidora, faça um programa, na linguagem que desejar, que calcule e retorne:
+
+   • O menor valor de faturamento ocorrido em um dia do mês;<br>
+   • O maior valor de faturamento ocorrido em um dia do mês;<br>
+   • Número de dias no mês em que o valor de faturamento diário foi superior à média mensal.<br>
+
+Código em Java:
+
+## 4ª Pergunta
+Dado o valor de faturamento mensal de uma distribuidora, detalhado por estado:
+
+   SP – R$67.836,43<br>
+   RJ – R$36.678,66<br>
+   MG – R$29.229,88<br>
+   ES – R$27.165,48<br>
+   Outros – R$19.849,53<br>
+
+Escreva um programa na linguagem que desejar onde calcule o percentual de representação que cada estado teve dentro do valor total mensal da distribuidora.
+
+Código em C:
+```c
 #include <stdio.h>
 #include <stdlib.h>
 
 float calcularPercentual(float contibuicaoEstado, float contribuicaoTotal);
 
-int main(void){
+int main(){
     float contribuicaoSp = 67836.43;
     float contribuicaoRj = 36678.66;
     float contribuicaoMg = 29229.88;
@@ -124,7 +165,14 @@ int main(void){
 float calcularPercentual(float contibuicaoEstado, float contribuicaoTotal){
     return (contibuicaoEstado / contribuicaoTotal) * 100;
 }
+```
 
+## 5ª Pergunta
+Escreva um programa que inverta os caracteres de um string.
+
+Código em C:
+
+```c
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h> 
@@ -159,3 +207,4 @@ void inverterFrase(char frase[]) {
     fraseAuxiliar[comprimento] = '\0'; 
     strcpy(frase, fraseAuxiliar);
 }
+```
