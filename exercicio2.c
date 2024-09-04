@@ -1,15 +1,34 @@
 #include <stdio.h>
 
+void gerarSequencia(int sequenciaFibonacci[], int tamanhoArray);
+void imprimirSequencia(int sequenciaFibonacci[], int tamanhoArray);
+void encontrarNumero(int sequenciaFibonacci[], int escolha, int tamanhoArray);
+
+
 int main() {
+    int sequenciaFibonacci[40];
+    int escolha;
+    
+    int tamanhoArray = sizeof(sequenciaFibonacci) / sizeof(sequenciaFibonacci[0]);
+    gerarSequencia(sequenciaFibonacci, tamanhoArray);
+    imprimirSequencia(sequenciaFibonacci, tamanhoArray);
+    
+    printf("Digite um numero para verificar se faz parte da Sequencia de Fibonacci: ");
+    if (scanf("%d", &escolha) != 1) {
+        printf("Entrada invalida.\n");
+        return 1;
+    }
+
+    encontrarNumero(sequenciaFibonacci, escolha, tamanhoArray);
+
+    return 0;
+}
+
+void gerarSequencia(int sequenciaFibonacci[], int tamanhoArray){
     int numAnterior = 0;
     int numAtual = 1;
     int numInserir = 0;
-    int sequenciaFibonacci[40];
-    int escolha;
-    int encontro = 0;
-
-    int tamanhoArray = sizeof(sequenciaFibonacci) / sizeof(sequenciaFibonacci[0]);
-
+    
     for (int i = 0; i < tamanhoArray; i++) {
         if (i == 0) {
             sequenciaFibonacci[i] = numAnterior;
@@ -22,31 +41,29 @@ int main() {
             numAtual = numInserir;
         }
     }
+}
 
-    printf("Sequência de Fibonacci gerada:\n");
+void imprimirSequencia(int sequenciaFibonacci[], int tamanhoArray){
+    printf("Sequencia de Fibonacci gerada:\n");
     for (int i = 0; i < tamanhoArray; i++) {
         printf("%d ", sequenciaFibonacci[i]);
     }
-    printf("\n");
+    printf("\n\n");
+}
 
-    printf("Digite um número para verificar se faz parte da Sequência de Fibonacci: ");
-    if (scanf("%d", &escolha) != 1) {
-        printf("Entrada inválida.\n");
-        return 1;
-    }
-
+void encontrarNumero(int sequenciaFibonacci[], int escolha, int tamanhoArray){
+    int encontro = 0;
+    
     for (int i = 0; i < tamanhoArray; i++) {
         if (escolha == sequenciaFibonacci[i]) {
             encontro = 1;
             break;
         }
     }
-
+    
     if (encontro) {
-        printf("O número %d faz parte da Sequência de Fibonacci!\n", escolha);
+        printf("\nO nÃºmero %d faz parte da Sequencia de Fibonacci!\n", escolha);
     } else {
-        printf("O número %d não faz parte da Sequência de Fibonacci.\n", escolha);
+        printf("\nO nÃºmero %d nÃ£o faz parte da Sequencia de Fibonacci.\n", escolha);
     }
-
-    return 0;
 }
