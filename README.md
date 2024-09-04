@@ -17,7 +17,7 @@ Imprimir(SOMA);
 <hr>
 Pergunta: Ao final do processamento, qual será o valor da variável SOMA?
 
-**Resposta**: A variável SOMA terá o valor 78.
+**Resposta**: A variável SOMA terá o valor 91.
 
 <br>
 Código em C:
@@ -34,7 +34,7 @@ int main() {
         soma += k + 1;
     }
     
-    printf("O valor da variável SOMA é: %d\n", soma);
+    printf("O valor da variável SOMA e: %d\n", soma);
 
     return 0;
 }
