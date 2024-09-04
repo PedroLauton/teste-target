@@ -34,6 +34,7 @@ int main() {
     }
     
     printf("O valor da variável SOMA é: %d\n", soma);
+
     return 0;
 }
 ```
@@ -97,3 +98,64 @@ int main() {
     return 0;
 }
 ```
+#include <stdio.h>
+#include <stdlib.h>
+
+float calcularPercentual(float contibuicaoEstado, float contribuicaoTotal);
+
+int main(void){
+    float contribuicaoSp = 67836.43;
+    float contribuicaoRj = 36678.66;
+    float contribuicaoMg = 29229.88;
+    float contribuicaoEs = 27165.48;
+    float contribuicaoOutros = 19849.53;
+    float contribuicaoTotal = contribuicaoSp + contribuicaoRj + contribuicaoMg + contribuicaoEs + contribuicaoOutros;
+
+    printf("A contribuicao de SP no lucro total foi de %.2f%%", calcularPercentual(contribuicaoSp, contribuicaoTotal));
+    printf("\nA contribuicao de RJ no lucro total foi de %.2f%%", calcularPercentual(contribuicaoRj, contribuicaoTotal));
+    printf("\nA contribuicao de MG no lucro total foi de %.2f%%", calcularPercentual(contribuicaoMg, contribuicaoTotal));
+    printf("\nA contribuicao de ES no lucro total foi de %.2f%%", calcularPercentual(contribuicaoEs, contribuicaoTotal));
+    printf("\nA contribuicao de Outros estados no lucro total foi de %.2f%%", calcularPercentual(contribuicaoOutros, contribuicaoTotal));
+    printf("\n\nA contribuicao total foi de %.2f reais", contribuicaoTotal);
+    
+    return 0
+}
+
+float calcularPercentual(float contibuicaoEstado, float contribuicaoTotal){
+    return (contibuicaoEstado / contribuicaoTotal) * 100;
+}
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h> 
+
+void inverterFrase(char frase[]); 
+
+int main() {
+    char frase[100];
+    printf("Digite uma frase com no maximo 100 caracteres: ");
+    fgets(frase, sizeof(frase), stdin);
+    
+    size_t comprimento = strlen(frase);
+    if (comprimento > 0 && frase[comprimento - 1] == '\n') {
+        frase[comprimento - 1] = '\0';
+    }
+    
+    printf("Frase digitada: %s\n", frase);
+    inverterFrase(frase);
+    printf("Frase invertida: %s\n", frase);
+
+    return 0;
+}
+
+void inverterFrase(char frase[]) {
+    int comprimento = strlen(frase);
+    char fraseAuxiliar[100];
+    
+    for (int i = 0; i < comprimento; i++) {
+        fraseAuxiliar[i] = frase[comprimento - i - 1];
+    }
+    
+    fraseAuxiliar[comprimento] = '\0'; 
+    strcpy(frase, fraseAuxiliar);
+}
