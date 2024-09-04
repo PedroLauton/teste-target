@@ -9,7 +9,7 @@ int main() {
         soma += k + 1;
     }
 
-    printf("O valor da vari·vel SOMA È: %d\n", soma);
+    printf("O valor da vari√°vel SOMA e: %d\n", soma);
 
     return 0;
 }
