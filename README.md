@@ -41,7 +41,7 @@ int main() {
 ```
 
 ## 2ª Pergunta
-Dado a sequência de Fibonacci, onde se inicia por 0 e 1 e o próximo valor sempre será a soma dos dois valores anteriores (exemplo: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34...), escreva um programa em C que calcule a sequência de Fibonacci e retorne uma mensagem indicando se um número informado pertence ou não à sequência.
+Dado a sequência de Fibonacci, onde se inicia por 0 e 1 e o próximo valor sempre será a soma dos dois valores anteriores (exemplo: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34...), escreva um programa na linguagem que desejar que calcule a sequência de Fibonacci e retorne uma mensagem indicando se um número informado pertence ou não à sequência.
 
 IMPORTANTE:
 Esse número pode ser informado através de qualquer entrada de sua preferência ou pode ser previamente definido no código;
