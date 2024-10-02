@@ -1,4 +1,4 @@
-# Estágio Target Sistemas
+# Target Sistemas
 
 Este repositório contém as respostas para as perguntas técnicas solicitadas.
 
